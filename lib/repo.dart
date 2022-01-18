@@ -1,7 +1,5 @@
 library repo;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/repo/repo.dart';
+export 'src/repo_mutation/repo_mutation.dart';
+export 'src/repo_query/repo_query.dart';
