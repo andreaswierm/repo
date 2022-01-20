@@ -11,9 +11,47 @@ class ExampleRepo extends Repo {
 }
 ```
 
+### Query
 Create a query
 ```dart
 class ListAllNumbersQuery implements RepoQuery<Future<List<int>>> {
-
+  @override
+  Future<List<int>> query(ExampleRepo repo) async {
+    return repo.numbers;
+  }
 }
+```
+
+Use query
+```dart
+final numbers = await ExampleRepo.query(
+  ListAllNumbersQuery(),
+);
+```
+
+
+### Mutation
+Create mutation
+```dart
+class AddItemMutation implements RepoMutation<Future<void>> {
+  final int item;
+
+  AddItemMutation({
+    required this.item,
+  });
+
+  @override
+  Future<void> mutate(ExampleRepo repo) async {
+    repo.numbers.add(item);
+  }
+}
+```
+
+Use mutation
+```dart
+await ExampleRepo.mutate(
+  AddItemMutation(
+    item: 5,
+  ),
+);
 ```
