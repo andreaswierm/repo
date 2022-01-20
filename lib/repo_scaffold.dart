@@ -1,4 +1,4 @@
-library repo;
+library repo_scaffold;
 
 export 'src/repo/repo.dart';
 export 'src/repo_mutation/repo_mutation.dart';
