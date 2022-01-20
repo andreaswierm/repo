@@ -13,7 +13,7 @@ class Coin {
 
 class ListCoinsQuery implements RepoQuery<Future<List<Coin>>> {
   @override
-  Future<List<Coin>> apply(CryptoRepo repo) async {
+  Future<List<Coin>> query(CryptoRepo repo) async {
     return repo.collection;
   }
 }
