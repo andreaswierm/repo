@@ -1,39 +1,57 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Repo Scaffold
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+This project aims to give a simple interface to create repositories that can be used with n number of queries and mutations
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+## How to use
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+Create your first first repo
 ```dart
-const like = 'sample';
+class ExampleRepo extends Repo {
+  final List<int> numbers;
+}
 ```
 
-## Additional information
+### Query
+Create a query
+```dart
+class ListAllNumbersQuery implements RepoQuery<Future<List<int>>> {
+  @override
+  Future<List<int>> query(ExampleRepo repo) async {
+    return repo.numbers;
+  }
+}
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Use query
+```dart
+final numbers = await ExampleRepo.query(
+  ListAllNumbersQuery(),
+);
+```
+
+
+### Mutation
+Create mutation
+```dart
+class AddItemMutation implements RepoMutation<Future<void>> {
+  final int item;
+
+  AddItemMutation({
+    required this.item,
+  });
+
+  @override
+  Future<void> mutate(ExampleRepo repo) async {
+    repo.numbers.add(item);
+  }
+}
+```
+
+Use mutation
+```dart
+await ExampleRepo.mutate(
+  AddItemMutation(
+    item: 5,
+  ),
+);
+```
