@@ -1,6 +1,6 @@
 name: repo_scaffold
 description: Interface to create repositories
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/andreaswierm/repo
 
 environment:

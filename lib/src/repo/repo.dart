@@ -7,7 +7,7 @@ class Repo {
   T query<T>(
     RepoQuery<T> query,
   ) =>
-      query.apply(this);
+      query.query(this);
 
   T mutate<T>(RepoMutation<T> mutation) {
     return mutation.mutate(this);
