@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:repo/src/repo_mutation/repo_mutation.dart';
-import 'package:repo/src/repo_query/repo_query.dart';
+import 'package:repo_scaffold/src/repo_mutation/repo_mutation.dart';
+import 'package:repo_scaffold/src/repo_query/repo_query.dart';
 
 class Repo {
   T query<T>(

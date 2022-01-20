@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:repo/repo.dart';
+import 'package:repo_scaffold/repo_scaffold.dart';
 
 class Coin {
   final int key;
